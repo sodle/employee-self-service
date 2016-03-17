@@ -207,7 +207,20 @@ namespace EmployeeSelfService
         }
         
         public static void UpdateUser();
-        public static void UpdateCert();
+        public static void UpdateCert(int userID, String certDescription)
+        {
+            using (var db = new ESSDatabase())
+            {
+                var getCert = from c in db.certification where c.employee_key.Equals(userID) and c.cert_text.Equals(certDescription) select c;
+                var cert = getCert.First();
+
+               if(certDescripition)
+                    cert.cert_text = certDescription;
+                    
+                //insert code to update certification variable in the database
+                db.SaveChanges();
+            }
+        }
         public static void UpdateSkill();
         public static void UpdateTimeReport();
         public static void DeleteSkill();

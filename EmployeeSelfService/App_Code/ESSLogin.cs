@@ -206,12 +206,12 @@ namespace EmployeeSelfService
             }
         }
         
-        public static void UpdateUser();
+        //public static void UpdateUser();
         public static void UpdateCert(int userID, String certDescription)
         {
             using (var db = new ESSDatabase())
             {
-                var getCert = from c in db.certification where c.employee_key.Equals(userID) and c.cert_text.Equals(certDescription) select c;
+                var getCert = from c in db.certification where c.employee_key.Equals(userID) select c;
                 var cert = getCert.First();
 
                if(certDescripition)
@@ -221,7 +221,20 @@ namespace EmployeeSelfService
                 db.SaveChanges();
             }
         }
-        public static void UpdateSkill();
+        public static void UpdateSkill(int userID, String skillDescription)
+        {
+            using (var db = new ESSDatabase())
+            {
+                var getSkills = from s in db.skill where s.employee_key.Equals(userID) select s;
+                var skills = getSkills.First();
+
+               if(skillDescription)
+                    skills.skill_text = skillDescription;
+                    
+                //insert code to update certification variable in the database
+                db.SaveChanges();
+            }
+        }
         public static void UpdateTimeReport();
         public static void DeleteSkill();
         public static void DeleteCert();

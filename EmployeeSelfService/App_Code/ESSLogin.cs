@@ -64,8 +64,6 @@ namespace EmployeeSelfService
                     throw new InvalidLoginException();
 
                 user.password_hash = HashPassword(username, newPassword);
-                user.create_date = DateTime.Now;
-
                 db.SaveChanges();
             }
         }
@@ -90,8 +88,7 @@ namespace EmployeeSelfService
                 newEmployee.address_zip = zip;
                 newEmployee.phone = phone;
                 newEmployee.email = email;
-                newEmployee.create_date = DateTime.Now;
-                db.employee.Add(newEmployee);
+                
                 db.SaveChanges();
             }
         }
@@ -109,9 +106,9 @@ namespace EmployeeSelfService
 
                 var newUser = new user();
                 newUser.user_name = username;
-                newUser.employee_key = employee_id;
-                newUser.create_date = DateTime.Now;
                 newUser.password_hash = HashPassword(username, password);
+                newUser.employee_key = employee_id;
+                
                 db.users.Add(newUser);
                 db.SaveChanges();
             }
@@ -130,7 +127,7 @@ namespace EmployeeSelfService
                 var newCert = new certification();
                 newCert.employee_key = userID;
                 newCert.cert_text = certDescription;
-                newCert.create_date = DateTime.Now;
+                
                 db.certification.Add(newCert);
                 db.SaveChanges();
             }
@@ -149,7 +146,7 @@ namespace EmployeeSelfService
                 var newSkill = new skill();
                 newSkill.employee_key = userID;
                 newSkill.skill_text = skillDescription;
-                newSkill.create_date = DateTime.Now;
+
                 db.skill.Add(newSkill);
                 db.SaveChanges();
             }
@@ -170,7 +167,7 @@ namespace EmployeeSelfService
                 newTimeReport.time_report_date = date;
                 newTimeReport.time_report_num_hours = numHours;
                 newTimeReport.time_report_billable = isBillable;
-                newTimeReport.create_date = DateTime.Now;
+
                 db.time_report.Add(newTimeReport);
                 db.SaveChanges();
             }
@@ -180,7 +177,7 @@ namespace EmployeeSelfService
         {
             using (var db = new ESSDatabase())
             {
-                var getEmployee = from e in db.employee where e.employee_key.Equals(userID) and e.email.Equals(email) select e;
+                var getEmployee = from e in db.employee where e.employee_key.Equals(userID) select e;
                 var employee = getEmployee.First();
                 
                 if(fName)
@@ -199,44 +196,82 @@ namespace EmployeeSelfService
                     employee.address_zip = zip;
                 if(phone != 0)
                     employee.phone = phone;
-                employee.create_date = DateTime.Now;
                 
                 // insert code to update the employee variable in the database
                 db.SaveChanges();
             }
         }
         
-        //public static void UpdateUser();
-        public static void UpdateCert(int userID, String certDescription)
+        public static void UpdateCert(int userID, int certID, String certDescription)
         {
             using (var db = new ESSDatabase())
             {
-                var getCert = from c in db.certification where c.employee_key.Equals(userID) select c;
+                var getCert = from c in db.certification where c.employee_key.Equals(userID) and c.cert_line_id.Equals(certID) select c;
                 var cert = getCert.First();
 
-               if(certDescripition)
+               if(certDescription)
                     cert.cert_text = certDescription;
                     
                 //insert code to update certification variable in the database
                 db.SaveChanges();
             }
         }
-        public static void UpdateSkill(int userID, String skillDescription)
+        
+        public static void UpdateSkill(int userID, int skillID, String skillDescription)
         {
             using (var db = new ESSDatabase())
             {
-                var getSkills = from s in db.skill where s.employee_key.Equals(userID) select s;
-                var skills = getSkills.First();
+                var getSkill = from s in db.skill where s.employee_key.Equals(userID) and s.skill_line_id.Equals(skillID) select s;
+                var skills = getSkill.First();
 
                if(skillDescription)
                     skills.skill_text = skillDescription;
                     
-                //insert code to update certification variable in the database
+                //insert code to update skill variable in the database
                 db.SaveChanges();
             }
         }
-        public static void UpdateTimeReport();
-        public static void DeleteSkill();
-        public static void DeleteCert();
+        
+        public static void UpdateTimeReport(int userID, string date, double numHours, bool isBillable)
+        {
+            using (var db = new ESSDatabase())
+            {
+                var getTR = from t in db.time_report where t.employee_key.Equals(userID) select t;
+                var timeReport = getTR.First();
+                
+                if(date)
+                    timeReport.time_report_date = date;
+                if(numHours)
+                    timeReport.time_report_num_hours = numHours;
+                timeReport.time_report_billable = isBillable;
+
+                //insert code to update timeReport variable in the database
+                db.SaveChanges();
+            }
+        }
+        
+        public static void DeleteSkill(int userID, int skillID)
+        {
+            using (var db = new ESSDatabase())
+            {
+                var getSkill = from s in db.skill where s.employee_key.Equals(userID) and s.skill_line_id.Equals(skillID) select s;
+                var skill = getSkill.First();
+                
+                db.DeleteObject(skill);
+                db.SaveChanges();
+            }
+        }
+        
+        public static void DeleteCert()
+        {
+            using (var db = new ESSDatabase())
+            {
+                var getCert = from c in db.certification where c.employee_key.Equals(userID) and c.cert_line_id.Equals(certID) select c;
+                var cert = getCert.First();
+                
+                db.DeleteObject(cert);
+                db.SaveChanges();
+            }
+        }
     }
 }

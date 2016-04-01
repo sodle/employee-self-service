@@ -49,7 +49,7 @@ namespace EmployeeSelfService
             }
         }
         
-        public static void ChangePassword(string username, string oldPassword, string newPassword)
+        public static int ChangePassword(string username, string oldPassword, string newPassword)
         {
             using (var db = new ESSDatabase())
             {
@@ -65,14 +65,16 @@ namespace EmployeeSelfService
 
                 user.password_hash = HashPassword(username, newPassword);
                 db.SaveChanges();
+
+                return user.user_key;
             }
         }
         
-        public static void CreateEmployee(string fName, string lName, string address1, string address2, string state, string city, int zip, int phone, string email)
+        public static int CreateEmployee(string fName, string lName, string address1, string address2, string state, string city, string zip, string phone, string email)
         {
             using (var db = new ESSDatabase())
             {
-                var checkEmployeeExists = from e in db.employee where e.email.Equals(email) select e;
+                var checkEmployeeExists = from e in db.employees where e.email.Equals(email) select e;
                 var employeeExists = (checkEmployeeExists.Count() != 0);
 
                 if (employeeExists)
@@ -88,13 +90,16 @@ namespace EmployeeSelfService
                 newEmployee.address_zip = zip;
                 newEmployee.phone = phone;
                 newEmployee.email = email;
-                
+
+                db.employees.Add(newEmployee);
                 db.SaveChanges();
+
+                return newEmployee.employee_key;
             }
         }
 
         
-        public static void CreateUser(string username, string password, int employee_id)
+        public static int CreateUser(string username, string password, int employee_id)
         {
             using (var db = new ESSDatabase())
             {
@@ -111,14 +116,16 @@ namespace EmployeeSelfService
                 
                 db.users.Add(newUser);
                 db.SaveChanges();
+
+                return newUser.user_key;
             }
         }
                 
-        public static void CreateCert(int userID, String certDescription)
+        public static int CreateCert(int userID, String certDescription)
         {
             using (var db = new ESSDatabase())
             {
-                var checkCertExists = from c in db.certification where c.employee_key.Equals(userID) and c.cert_text.Equals(certDescription) select c;
+                var checkCertExists = from c in db.certifications where c.employee_key.Equals(userID) && c.cert_text.Equals(certDescription) select c;
                 var certExists = (checkCertExists.Count() != 0);
 
                 if (certExists)
@@ -128,16 +135,18 @@ namespace EmployeeSelfService
                 newCert.employee_key = userID;
                 newCert.cert_text = certDescription;
                 
-                db.certification.Add(newCert);
+                db.certifications.Add(newCert);
                 db.SaveChanges();
+
+                return newCert.cert_line_id;
             }
         }
 
-        public static void CreateSkill(int userID, String skillDescription)
+        public static int CreateSkill(int userID, String skillDescription)
         {
             using (var db = new ESSDatabase())
             {
-                var checkSkillExists = from s in db.skill where s.employee_key.Equals(userID) and s.skill_text.Equals(skillDescription) select s;
+                var checkSkillExists = from s in db.skills where s.employee_key.Equals(userID) && s.skill_text.Equals(skillDescription) select s;
                 var skillExists = (checkSkillExists.Count() != 0);
 
                 if (skillExists)
@@ -147,16 +156,18 @@ namespace EmployeeSelfService
                 newSkill.employee_key = userID;
                 newSkill.skill_text = skillDescription;
 
-                db.skill.Add(newSkill);
+                db.skills.Add(newSkill);
                 db.SaveChanges();
+
+                return newSkill.skill_line_id;
             }
         }
         
-        public static void CreateTimeReport(int userID, string date, double numHours, bool isBillable)
+        public static int CreateTimeReport(int userID, DateTime date, decimal numHours, bool isBillable)
         {
             using (var db = new ESSDatabase())
             {
-                var checkTRExists = from t in db.time_report where t.employee_key.Equals(userID) and t.time_report_date.Equals(date) select t;
+                var checkTRExists = from t in db.time_report where t.employee_key.Equals(userID) && t.time_report_date.Equals(date) select t;
                 var trExists = (checkTRExists.Count() != 0);
 
                 if (trExists)
@@ -170,83 +181,90 @@ namespace EmployeeSelfService
 
                 db.time_report.Add(newTimeReport);
                 db.SaveChanges();
+
+                return newTimeReport.time_report_id;
             }
         }
         
-        public static void UpdateEmployee(int userID, string fName, string lName, string address1, string address2, string state, string city, int zip, int phone)
+        public static int UpdateEmployee(int userID, string fName, string lName, string address1, string address2, string state, string city, string zip, string phone)
         {
             using (var db = new ESSDatabase())
             {
-                var getEmployee = from e in db.employee where e.employee_key.Equals(userID) select e;
+                var getEmployee = from e in db.employees where e.employee_key.Equals(userID) select e;
                 var employee = getEmployee.First();
                 
-                if(fName)
+                if (!fName.Equals(null))
                     employee.first_name = fName;
-                if(lName)
+                if (!lName.Equals(null))
                     employee.last_name = lName;
-                if(address1)
+                if (!address1.Equals(null))
                     employee.address_street1 = address1;
-                if(address2)
+                if (!address2.Equals(null))
                     employee.address_street2 = address2;
-                if(state)
+                if (!state.Equals(null))
                     employee.address_state = state;
-                if(city)
+                if (!city.Equals(null))
                     employee.address_city = city;
-                if(zip != 0)
+                if (!zip.Equals(null))
                     employee.address_zip = zip;
-                if(phone != 0)
+                if (!phone.Equals(null))
                     employee.phone = phone;
                 
                 // insert code to update the employee variable in the database
                 db.SaveChanges();
+
+                return employee.employee_key;
             }
         }
         
-        public static void UpdateCert(int userID, int certID, String certDescription)
+        public static int UpdateCert(int userID, int certID, String certDescription)
         {
             using (var db = new ESSDatabase())
             {
-                var getCert = from c in db.certification where c.employee_key.Equals(userID) and c.cert_line_id.Equals(certID) select c;
+                var getCert = from c in db.certifications where c.employee_key.Equals(userID) && c.cert_line_id.Equals(certID) select c;
                 var cert = getCert.First();
 
-               if(certDescription)
+               if (!certDescription.Equals(null))
                     cert.cert_text = certDescription;
                     
                 //insert code to update certification variable in the database
                 db.SaveChanges();
+                return cert.cert_line_id;
             }
         }
         
-        public static void UpdateSkill(int userID, int skillID, String skillDescription)
+        public static int UpdateSkill(int userID, int skillID, String skillDescription)
         {
             using (var db = new ESSDatabase())
             {
-                var getSkill = from s in db.skill where s.employee_key.Equals(userID) and s.skill_line_id.Equals(skillID) select s;
+                var getSkill = from s in db.skills where s.employee_key.Equals(userID) && s.skill_line_id.Equals(skillID) select s;
                 var skills = getSkill.First();
 
-               if(skillDescription)
+               if (!skillDescription.Equals(null))
                     skills.skill_text = skillDescription;
                     
                 //insert code to update skill variable in the database
                 db.SaveChanges();
+                return skills.skill_line_id;
             }
         }
         
-        public static void UpdateTimeReport(int userID, string date, double numHours, bool isBillable)
+        public static int UpdateTimeReport(int userID, DateTime date, decimal numHours, bool isBillable)
         {
             using (var db = new ESSDatabase())
             {
                 var getTR = from t in db.time_report where t.employee_key.Equals(userID) select t;
                 var timeReport = getTR.First();
                 
-                if(date)
+                if (!date.Equals(null))
                     timeReport.time_report_date = date;
-                if(numHours)
+                if (!numHours.Equals(null))
                     timeReport.time_report_num_hours = numHours;
                 timeReport.time_report_billable = isBillable;
 
                 //insert code to update timeReport variable in the database
                 db.SaveChanges();
+                return timeReport.time_report_id;
             }
         }
         
@@ -254,22 +272,22 @@ namespace EmployeeSelfService
         {
             using (var db = new ESSDatabase())
             {
-                var getSkill = from s in db.skill where s.employee_key.Equals(userID) and s.skill_line_id.Equals(skillID) select s;
+                var getSkill = from s in db.skills where s.employee_key.Equals(userID) && s.skill_line_id.Equals(skillID) select s;
                 var skill = getSkill.First();
                 
-                db.DeleteObject(skill);
+                db.skills.Remove(skill);
                 db.SaveChanges();
             }
         }
         
-        public static void DeleteCert()
+        public static void DeleteCert(int userID, int certID)
         {
             using (var db = new ESSDatabase())
             {
-                var getCert = from c in db.certification where c.employee_key.Equals(userID) and c.cert_line_id.Equals(certID) select c;
+                var getCert = from c in db.certifications where c.employee_key.Equals(userID) && c.cert_line_id.Equals(certID) select c;
                 var cert = getCert.First();
                 
-                db.DeleteObject(cert);
+                db.certifications.Remove(cert);
                 db.SaveChanges();
             }
         }

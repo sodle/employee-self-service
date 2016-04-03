@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="ChangePassword.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -139,6 +140,13 @@
     <Compile Include="App_Code\ESSDatabase.cs" />
     <Compile Include="App_Code\ESSLogin.cs" />
     <Compile Include="App_Code\expense_report.cs" />
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

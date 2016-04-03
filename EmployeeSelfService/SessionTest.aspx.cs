@@ -12,7 +12,10 @@ namespace EmployeeSelfService
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Username"] == null)
-                sessioncheck.InnerText = "No session is active.";
+            {
+                Response.BufferOutput = true;
+                Response.Redirect("/Login.aspx?nextPage=" + Request.ServerVariables["URL"]);
+            }
             else
                 sessioncheck.InnerText = "Logged in as " + Session["username"] + ".";
         }

@@ -64,6 +64,7 @@ namespace EmployeeSelfService
                     throw new InvalidLoginException();
 
                 user.password_hash = HashPassword(username, newPassword);
+                user.create_date = DateTime.Now;
                 db.SaveChanges();
 
                 return user.user_key;
@@ -90,6 +91,7 @@ namespace EmployeeSelfService
                 newEmployee.address_zip = zip;
                 newEmployee.phone = phone;
                 newEmployee.email = email;
+                newEmployee.create_date = DateTime.Now;
 
                 db.employees.Add(newEmployee);
                 db.SaveChanges();
@@ -113,6 +115,7 @@ namespace EmployeeSelfService
                 newUser.user_name = username;
                 newUser.password_hash = HashPassword(username, password);
                 newUser.employee_key = employee_id;
+                newUser.create_date = DateTime.Now;
                 
                 db.users.Add(newUser);
                 db.SaveChanges();
@@ -134,6 +137,7 @@ namespace EmployeeSelfService
                 var newCert = new certification();
                 newCert.employee_key = userID;
                 newCert.cert_text = certDescription;
+                newCert.create_date = DateTime.Now;
                 
                 db.certifications.Add(newCert);
                 db.SaveChanges();
@@ -155,6 +159,7 @@ namespace EmployeeSelfService
                 var newSkill = new skill();
                 newSkill.employee_key = userID;
                 newSkill.skill_text = skillDescription;
+                newSkill.create_date = DateTime.Now;
 
                 db.skills.Add(newSkill);
                 db.SaveChanges();
@@ -178,6 +183,7 @@ namespace EmployeeSelfService
                 newTimeReport.time_report_date = date;
                 newTimeReport.time_report_num_hours = numHours;
                 newTimeReport.time_report_billable = isBillable;
+                newTimeReport.create_date = DateTime.Now;
 
                 db.time_report.Add(newTimeReport);
                 db.SaveChanges();
@@ -209,6 +215,8 @@ namespace EmployeeSelfService
                     employee.address_zip = zip;
                 if (!phone.Equals(null))
                     employee.phone = phone;
+
+                employee.create_date = DateTime.Now;
                 
                 // insert code to update the employee variable in the database
                 db.SaveChanges();
@@ -224,8 +232,10 @@ namespace EmployeeSelfService
                 var getCert = from c in db.certifications where c.employee_key.Equals(userID) && c.cert_line_id.Equals(certID) select c;
                 var cert = getCert.First();
 
-               if (!certDescription.Equals(null))
+                if (!certDescription.Equals(null))
                     cert.cert_text = certDescription;
+
+                cert.create_date = DateTime.Now;
                     
                 //insert code to update certification variable in the database
                 db.SaveChanges();
@@ -240,8 +250,10 @@ namespace EmployeeSelfService
                 var getSkill = from s in db.skills where s.employee_key.Equals(userID) && s.skill_line_id.Equals(skillID) select s;
                 var skills = getSkill.First();
 
-               if (!skillDescription.Equals(null))
+                if (!skillDescription.Equals(null))
                     skills.skill_text = skillDescription;
+
+                skills.create_date = DateTime.Now;
                     
                 //insert code to update skill variable in the database
                 db.SaveChanges();
@@ -261,6 +273,8 @@ namespace EmployeeSelfService
                 if (!numHours.Equals(null))
                     timeReport.time_report_num_hours = numHours;
                 timeReport.time_report_billable = isBillable;
+
+                timeReport.create_date = DateTime.Now;
 
                 //insert code to update timeReport variable in the database
                 db.SaveChanges();

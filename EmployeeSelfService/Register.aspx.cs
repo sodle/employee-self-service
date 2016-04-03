@@ -17,7 +17,7 @@ namespace EmployeeSelfService
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            if (Username.Text == "" || EmployeeID.Text == "" || Password.Text == "" || PasswordConfirm.Text == "")
+            if (FirstName.Text == "" || LastName.Text == "" || Email.Text == "" || Username.Text == "" || Password.Text == "" || PasswordConfirm.Text == "" || StreetAddress1.Text == "" || City.Text == "" || State.Text == "" || ZIP.Text == "" || Phone.Text == "")
             {
                 ErrorText.Text = "Please fill out all required fields.";
                 return;
@@ -29,7 +29,8 @@ namespace EmployeeSelfService
             }
             try
             {
-                ESSLogin.CreateUser(Username.Text, Password.Text, int.Parse(EmployeeID.Text));
+                int employeeID = ESSLogin.CreateEmployee(FirstName.Text, LastName.Text, StreetAddress1.Text, StreetAddress2.Text, State.Text, City.Text, ZIP.Text, Phone.Text, Email.Text);
+                ESSLogin.CreateUser(Username.Text, Password.Text, employeeID);
                 ErrorText.Text = "User created successfully.";
                 Session["Username"] = Username.Text;
                 Response.BufferOutput = true;
@@ -40,9 +41,9 @@ namespace EmployeeSelfService
                 ErrorText.Text = "A user with that username already exists.";
                 return;
             }
-            catch (FormatException)
+            catch (EmployeeAlreadyExistsException)
             {
-                ErrorText.Text = "Employee ID must be a number.";
+                ErrorText.Text = "An employee with that email address already exists.";
                 return;
             }
         }

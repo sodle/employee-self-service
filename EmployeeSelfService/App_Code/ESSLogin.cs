@@ -199,22 +199,14 @@ namespace EmployeeSelfService
                 var getEmployee = from e in db.employees where e.employee_key.Equals(userID) select e;
                 var employee = getEmployee.First();
                 
-                if (!fName.Equals(null))
-                    employee.first_name = fName;
-                if (!lName.Equals(null))
-                    employee.last_name = lName;
-                if (!address1.Equals(null))
-                    employee.address_street1 = address1;
-                if (!address2.Equals(null))
-                    employee.address_street2 = address2;
-                if (!state.Equals(null))
-                    employee.address_state = state;
-                if (!city.Equals(null))
-                    employee.address_city = city;
-                if (!zip.Equals(null))
-                    employee.address_zip = zip;
-                if (!phone.Equals(null))
-                    employee.phone = phone;
+                employee.first_name = fName;
+                employee.last_name = lName;
+                employee.address_street1 = address1;
+                employee.address_street2 = address2;
+                employee.address_state = state;
+                employee.address_city = city;
+                employee.address_zip = zip;
+                employee.phone = phone;
 
                 employee.create_date = DateTime.Now;
                 

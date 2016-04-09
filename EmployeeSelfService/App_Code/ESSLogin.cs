@@ -151,6 +151,9 @@ namespace EmployeeSelfService
                 if (certExists)
                     throw new CertAlreadyExistsException();
 
+                if (certDescription == "")
+                    throw new RequiredValueMissingException();
+
                 var newCert = new certification();
                 newCert.employee_key = userID;
                 newCert.cert_text = certDescription;
@@ -172,6 +175,9 @@ namespace EmployeeSelfService
 
                 if (skillExists)
                     throw new SkillAlreadyExistsException();
+
+                if (skillDescription == "")
+                    throw new RequiredValueMissingException();
 
                 var newSkill = new skill();
                 newSkill.employee_key = userID;

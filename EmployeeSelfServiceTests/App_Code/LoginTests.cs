@@ -157,5 +157,69 @@ namespace EmployeeSelfService.Tests
             ESSLogin.CreateUser("testuser", "testpass", EmployeeKey);
             var LoggedInUser = ESSLogin.TryLogin("testuser", "wrongpass");
         }
+
+        [TestMethod]
+        public void TestCreateCert()
+        {
+            var EmployeeKey = ESSLogin.CreateEmployee("First name", "Last name", "123 Address 1", "Line 2", "NY", "New York", "11111", "1234567890", "test@test.com");
+            ESSLogin.CreateCert(EmployeeKey, "ASP.NET Power User");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(RequiredValueMissingException))]
+        public void TestCreateCertWithEmptyDescription()
+        {
+            var EmployeeKey = ESSLogin.CreateEmployee("First name", "Last name", "123 Address 1", "Line 2", "NY", "New York", "11111", "1234567890", "test@test.com");
+            ESSLogin.CreateCert(EmployeeKey, "");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(CertAlreadyExistsException))]
+        public void TestCreateCertWithDuplicateDescription()
+        {
+            var EmployeeKey = ESSLogin.CreateEmployee("First name", "Last name", "123 Address 1", "Line 2", "NY", "New York", "11111", "1234567890", "test@test.com");
+            ESSLogin.CreateCert(EmployeeKey, "ASP.NET Power User");
+            ESSLogin.CreateCert(EmployeeKey, "ASP.NET Power User");
+        }
+
+        [TestMethod]
+        public void TestCreateSkill()
+        {
+            var EmployeeKey = ESSLogin.CreateEmployee("First name", "Last name", "123 Address 1", "Line 2", "NY", "New York", "11111", "1234567890", "test@test.com");
+            ESSLogin.CreateSkill(EmployeeKey, "ASP.NET Unit Testing");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(RequiredValueMissingException))]
+        public void TestCreateSkillWithEmptyDescription()
+        {
+            var EmployeeKey = ESSLogin.CreateEmployee("First name", "Last name", "123 Address 1", "Line 2", "NY", "New York", "11111", "1234567890", "test@test.com");
+            ESSLogin.CreateSkill(EmployeeKey, "");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(SkillAlreadyExistsException))]
+        public void TestCreateSkillWithDuplicateDescription()
+        {
+            var EmployeeKey = ESSLogin.CreateEmployee("First name", "Last name", "123 Address 1", "Line 2", "NY", "New York", "11111", "1234567890", "test@test.com");
+            ESSLogin.CreateSkill(EmployeeKey, "ASP.NET Unit Testing");
+            ESSLogin.CreateSkill(EmployeeKey, "ASP.NET Unit Testing");
+        }
+
+        [TestMethod]
+        public void TestCreateTimeReport()
+        {
+            var EmployeeKey = ESSLogin.CreateEmployee("First name", "Last name", "123 Address 1", "Line 2", "NY", "New York", "11111", "1234567890", "test@test.com");
+            ESSLogin.CreateTimeReport(EmployeeKey, DateTime.Now, 10, true);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TimeReportAlreadyExistsException))]
+        public void TestCreateTimeReportWithDuplicateDate()
+        {
+            var EmployeeKey = ESSLogin.CreateEmployee("First name", "Last name", "123 Address 1", "Line 2", "NY", "New York", "11111", "1234567890", "test@test.com");
+            ESSLogin.CreateTimeReport(EmployeeKey, DateTime.Now.Date, 10, true);
+            ESSLogin.CreateTimeReport(EmployeeKey, DateTime.Now.Date, 10, true);
+        }
     }
 }

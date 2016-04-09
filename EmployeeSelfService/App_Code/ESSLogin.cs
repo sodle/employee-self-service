@@ -221,7 +221,10 @@ namespace EmployeeSelfService
             {
                 var getEmployee = from e in db.employees where e.employee_key.Equals(userID) select e;
                 var employee = getEmployee.First();
-                
+
+                if (fName == "" || lName == "" || address1 == "" || state == "" || city == "" || zip == "" || phone == "")
+                    throw new RequiredValueMissingException();
+
                 employee.first_name = fName;
                 employee.last_name = lName;
                 employee.address_street1 = address1;
@@ -247,8 +250,14 @@ namespace EmployeeSelfService
                 var getCert = from c in db.certifications where c.employee_key.Equals(userID) && c.cert_line_id.Equals(certID) select c;
                 var cert = getCert.First();
 
-                if (!certDescription.Equals(null))
-                    cert.cert_text = certDescription;
+                var checkDup = from c in db.certifications where c.employee_key.Equals(userID) && c.cert_text.Equals(certDescription) && !c.cert_line_id.Equals(cert.cert_line_id) select c;
+                if (checkDup.Count() != 0)
+                    throw new CertAlreadyExistsException();
+
+                if (certDescription == "")
+                    throw new RequiredValueMissingException();
+
+                cert.cert_text = certDescription;
 
                 cert.create_date = DateTime.Now;
                     
@@ -265,8 +274,14 @@ namespace EmployeeSelfService
                 var getSkill = from s in db.skills where s.employee_key.Equals(userID) && s.skill_line_id.Equals(skillID) select s;
                 var skills = getSkill.First();
 
-                if (!skillDescription.Equals(null))
-                    skills.skill_text = skillDescription;
+                var checkDup = from s in db.skills where s.employee_key.Equals(userID) && s.skill_text.Equals(skillDescription) && !s.skill_line_id.Equals(skills.skill_line_id) select s;
+                if (checkDup.Count() != 0)
+                    throw new SkillAlreadyExistsException();
+
+                if (skillDescription == "")
+                    throw new RequiredValueMissingException();
+
+                skills.skill_text = skillDescription;
 
                 skills.create_date = DateTime.Now;
                     
@@ -276,17 +291,24 @@ namespace EmployeeSelfService
             }
         }
         
-        public static int UpdateTimeReport(int userID, DateTime date, decimal numHours, bool isBillable)
+        public static int UpdateTimeReport(int userID, int timeReportID, DateTime date, decimal numHours, bool isBillable)
         {
             using (var db = new ESSDatabase())
             {
-                var getTR = from t in db.time_report where t.employee_key.Equals(userID) select t;
+                var getTR = from t in db.time_report where t.time_report_id.Equals(timeReportID) select t;
+                if (getTR.Count() == 0)
+                    throw new TimeReportDoesNotExistException();
+
                 var timeReport = getTR.First();
-                
-                if (!date.Equals(null))
-                    timeReport.time_report_date = date;
-                if (!numHours.Equals(null))
-                    timeReport.time_report_num_hours = numHours;
+
+                var checkTRExists = from t in db.time_report where t.employee_key.Equals(userID) && t.time_report_date.Equals(date) && !t.time_report_id.Equals(timeReport.time_report_id) select t;
+                var trExists = (checkTRExists.Count() != 0);
+
+                if (trExists)
+                    throw new TimeReportAlreadyExistsException();
+
+                timeReport.time_report_date = date;
+                timeReport.time_report_num_hours = numHours;
                 timeReport.time_report_billable = isBillable;
 
                 timeReport.create_date = DateTime.Now;
@@ -302,6 +324,9 @@ namespace EmployeeSelfService
             using (var db = new ESSDatabase())
             {
                 var getSkill = from s in db.skills where s.employee_key.Equals(userID) && s.skill_line_id.Equals(skillID) select s;
+                if (getSkill.Count() == 0)
+                    throw new SkillDoesNotExistException();
+
                 var skill = getSkill.First();
                 
                 db.skills.Remove(skill);
@@ -314,6 +339,9 @@ namespace EmployeeSelfService
             using (var db = new ESSDatabase())
             {
                 var getCert = from c in db.certifications where c.employee_key.Equals(userID) && c.cert_line_id.Equals(certID) select c;
+                if (getCert.Count() == 0)
+                    throw new CertDoesNotExistException();
+
                 var cert = getCert.First();
                 
                 db.certifications.Remove(cert);

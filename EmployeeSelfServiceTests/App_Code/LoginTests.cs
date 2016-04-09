@@ -15,7 +15,7 @@ namespace EmployeeSelfService.Tests
     public class LoginTests
     {
         // The Initialize and Cleanup methods run prior to each of our tests and create a transaction which is later rolled back.
-        // This prevents tainting the database with sample data and creating conflicts between tests.
+        // This prevents conflicts between tests.
 
         TransactionScope _txn;
 

@@ -19,6 +19,7 @@ namespace EmployeeSelfService
     public class SkillDoesNotExistException : Exception { }
     public class TimeReportDoesNotExistException : Exception { }
     public class InvalidLoginException : Exception { }
+    public class RequiredValueMissingException : Exception { }
 
     public class ESSLogin
     {
@@ -28,6 +29,10 @@ namespace EmployeeSelfService
             string salted = username + password;
             byte[] saltyBytes = Encoding.Default.GetBytes(salted);
             byte[] hashBytes = hasher.ComputeHash(saltyBytes);
+
+            if (username == "" || password == "")
+                throw new RequiredValueMissingException();
+
             return Encoding.Default.GetString(hashBytes);
         }
 
@@ -75,6 +80,9 @@ namespace EmployeeSelfService
         {
             using (var db = new ESSDatabase())
             {
+                if (fName == "" || lName == "" || address1 == "" || state == "" || city == "" || zip == "" || phone == "" || email == "")
+                    throw new RequiredValueMissingException();
+
                 var checkEmployeeExists = from e in db.employees where e.email.Equals(email) select e;
                 var employeeExists = (checkEmployeeExists.Count() != 0);
 
@@ -105,6 +113,15 @@ namespace EmployeeSelfService
         {
             using (var db = new ESSDatabase())
             {
+                if (username == "" || password == "")
+                    throw new RequiredValueMissingException();
+
+                var checkEmployeeExists = from e in db.employees where e.employee_key.Equals(employee_id) select e;
+                var employeeExists = (checkEmployeeExists.Count() != 0);
+
+                if (!employeeExists)
+                    throw new EmployeeDoesNotExistException();
+
                 var checkUserExists = from u in db.users where u.user_name.Equals(username) select u;
                 var userExists = (checkUserExists.Count() != 0);
 

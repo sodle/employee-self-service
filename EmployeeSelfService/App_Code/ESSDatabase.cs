@@ -5,7 +5,7 @@ namespace EmployeeSelfService
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class ESSDatabase : DbContext
+    public partial class ESSDatabase : System.Data.Entity.DbContext
     {
         public ESSDatabase()
             : base("name=EmployeeSelfService")

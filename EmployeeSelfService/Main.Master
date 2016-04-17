@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="EmployeeSelfService.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Employee Self Service</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%--  <asp:ContentPlaceHolder ID="head" runat="server"/>--%>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="StyleSection" runat="server" />
+    <%-- </asp:ContentPlaceHolder>--%>
+    <style type="text/css">
+        .auto-style1 {
+            float: left;
+            height: 11px;
+            padding: 15px 15px;
+            font-size: 18px;
+            line-height: 20px;
+            color: #FFFFFF;
+        }
+        .auto-style2 {
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+
+    <%-- <form id="form1" runat="server">--%>
+    <div class="container">
+        <%-- <div class="navbar navbar-default navbar-inverse navbar-fixed-top">--%>
+        <div class="navbar navbar-default navbar-inverse navbar-fixed-top" style="background-color: #FF4411" role="navigation">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                   
+
+                    <a class="auto-style1" href="#">Employee Self Service</a>
+                </div>
+
+                <div id="navbar" class="navbar-collapse collapse in" aria-expanded="false"> <%--DROPDOWN NEEDS WORK--%>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/Register.aspx"><span class="auto-style2">Register</span></a></li>
+                        <li><a href="/Login.aspx">Log In</a></li>
+                        <li><a href="#">Link</a></li>
+
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Page Section -->
+
+        <br />
+        <br />
+        <br />
+        <div class="container">
+            <asp:ContentPlaceHolder ID="form" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+
+
+
+    <%--</form>--%>
+
+
+    <asp:ContentPlaceHolder ID="ScriptSection" runat="server" />
+     <br />
+    <hr />
+    <footer>
+                    <p>Sogeti&copy; - Employee Self Service</p>
+    </footer>
+     <br />
+    <script type="text/javascript" src="scripts/jquery-2.2.2.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.js"></script>
+    
+
+</body>
+</html>

@@ -1,42 +1,44 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="EmployeeSelfService.Register" %>
-
-<!DOCTYPE html>
+﻿<%@ Page Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="EmployeeSelfService.Register"  %>
+<asp:Content ID="Content1Profile" ContentPlaceHolderID="StyleSection" runat="server">
+</asp:Content>
+<asp:Content ID="Content2Profile" ContentPlaceHolderID="form" runat="server">
+    <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<%--<head runat="server">
     <title></title>
-</head>
+</head>--%>
 <body>
     <form id="form1" runat="server">
         <h1>Register for Employee Self Service</h1>
     <div>
         
         First name&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="FirstName" runat="server"></asp:TextBox>
+        <asp:TextBox ID="FirstName" runat="server"  CssClass="form-control input-sm" Width="250px"></asp:TextBox>
         <br />
         Last name&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="LastName" runat="server"></asp:TextBox>
+        <asp:TextBox ID="LastName" runat="server"  CssClass="form-control input-sm" Width="250px"></asp:TextBox>
         <br />
         Email address&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="Email" runat="server" TextMode="Email"></asp:TextBox>
+        <asp:TextBox ID="Email" runat="server" TextMode="Email"  CssClass="form-control input-sm" Width="250px"></asp:TextBox>
         <br />
-        Choose a username&nbsp;&nbsp;&nbsp; <asp:TextBox ID="Username" runat="server"></asp:TextBox>
+        Choose a username&nbsp;&nbsp;&nbsp; <asp:TextBox ID="Username" runat="server" CssClass="form-control input-sm" Width="250px"></asp:TextBox>
         <br />
         Password&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
+        <asp:TextBox ID="Password" runat="server" TextMode="Password" CssClass="form-control input-sm" Width="250px"></asp:TextBox>
         <br />
         Confirm password&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="PasswordConfirm" runat="server" TextMode="Password"></asp:TextBox>
+        <asp:TextBox ID="PasswordConfirm" runat="server" TextMode="Password" CssClass="form-control input-sm" Width="250px"></asp:TextBox>
         <br />
         Street address<br />
-        <asp:TextBox ID="StreetAddress1" runat="server"></asp:TextBox><br />
-        <asp:TextBox ID="StreetAddress2" runat="server"></asp:TextBox>
+        <asp:TextBox ID="StreetAddress1" runat="server" CssClass="form-control input-sm" Width="250px"></asp:TextBox><br />
+        <asp:TextBox ID="StreetAddress2" runat="server" CssClass="form-control input-sm" Width="250px"></asp:TextBox>
         <br />
         City&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="City" runat="server"></asp:TextBox>
+        <asp:TextBox ID="City" runat="server" CssClass="form-control input-sm" Width="250px"></asp:TextBox>
         <br />
         State&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="State" runat="server">
+        <asp:DropDownList ID="State" runat="server" CssClass="form-control">
             <asp:ListItem Value="AL">Alabama</asp:ListItem>
             <asp:ListItem Value="AK">Alaska</asp:ListItem>
             <asp:ListItem Value="AZ">Arizona</asp:ListItem>
@@ -91,16 +93,19 @@
         </asp:DropDownList>
         <br />
         ZIP&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="ZIP" runat="server"></asp:TextBox>
+        <asp:TextBox ID="ZIP" runat="server" CssClass="form-control input-sm" Width="250px"></asp:TextBox>
         <br />
         Phone Number&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="Phone" runat="server" TextMode="Phone"></asp:TextBox>
+        <asp:TextBox ID="Phone" runat="server" TextMode="Phone" CssClass="form-control input-sm" Width="250px"></asp:TextBox>
         <br />
-        <asp:Button ID="SubmitButton" runat="server" OnClick="SubmitButton_Click" Text="Register" />
+        <asp:Button ID="SubmitButton" runat="server" OnClick="SubmitButton_Click" Text="Register" CssClass="btn btn-primary" />
         <br />
-        <asp:Label ID="ErrorText" runat="server"></asp:Label>
+        <asp:Label ID="ErrorText" runat="server" ForeColor="Red"></asp:Label>
 
     </div>
     </form>
 </body>
 </html>
+    </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptSection" runat="server">
+</asp:Content>

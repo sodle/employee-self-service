@@ -20,17 +20,17 @@
             line-height: 20px;
             color: #FFFFFF;
         }
-        .auto-style2 {
-            color: #333333;
-        }
     </style>
 </head>
 <body>
 
+ <%--   <form id="form1" runat="server">--%>
+
     <%-- <form id="form1" runat="server">--%>
     <div class="container">
         <%-- <div class="navbar navbar-default navbar-inverse navbar-fixed-top">--%>
-        <div class="navbar navbar-default navbar-inverse navbar-fixed-top" style="background-color: #FF4411" role="navigation">
+        <!--nav bar section-->
+        <div class="navbar navbar-default navbar-inverse navbar-fixed-top" style="background-color: #FF4411; border:none; box-shadow: 10px -1px 10px #333"  role="navigation">
             <div class="container-fluid">
 
                 <div class="navbar-header">
@@ -47,43 +47,57 @@
                     <a class="auto-style1" href="#">Employee Self Service</a>
                 </div>
 
-                <div id="navbar" class="navbar-collapse collapse in" aria-expanded="false"> <%--DROPDOWN NEEDS WORK--%>
-                    <ul class="nav navbar-nav">
-                        <li><a href="/Register.aspx"><span class="auto-style2">Register</span></a></li>
+                <div id="navbar" class="navbar-collapse collapse in" aria-expanded="false"> 
+                    <ul class="nav navbar-nav navbar-right"  >
+                        <li><a href="/Register.aspx" >Register</a></li>
                         <li><a href="/Login.aspx">Log In</a></li>
-                        <li><a href="#">Link</a></li>
+                       
 
                     </ul>
                     </div>
                 </div>
             </div>
         </div>
-
+        
         <!-- Content Page Section -->
 
         <br />
         <br />
         <br />
-        <div class="container">
-            <asp:ContentPlaceHolder ID="form" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+            <form id="form1" runat="server">
+                <div class="container">
+                    <asp:ContentPlaceHolder ID="form" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+      <%--<div id="container-sidebar" style="margin-top:100px">
+       <asp:Menu runat="server">
+           <Items>
+               <asp:MenuItem Text="Profile"></asp:MenuItem>
+                  <asp:MenuItem Text="Profile"></asp:MenuItem>
+                  <asp:MenuItem Text="Profile"></asp:MenuItem>
+           </Items>
+       </asp:Menu>
+      </div>--%>
+        </form>
+      
 
 
-
-
-    <%--</form>--%>
+  
 
 
     <asp:ContentPlaceHolder ID="ScriptSection" runat="server" />
      <br />
-    <hr />
-    <footer>
-                    <p>Sogeti&copy; - Employee Self Service</p>
-    </footer>
+
+    <div id="footer" style="background-color:#FF4411"">
+      <p style="color:white; margin-left: 50px">Sogeti - Employee Self Service</p>
+   
+    </div>
      <br />
     <script type="text/javascript" src="scripts/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.js"></script>
+    
+
+    
     
 
 </body>

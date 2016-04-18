@@ -11,7 +11,9 @@
         <title></title>
     </head>--%>
     <body>
-        <form id="form1" runat="server">
+    
+      <%--  <form id="form1" runat="server">--%>
+            
             <h1>Your Profile</h1>
             <hr />
             <div>
@@ -44,7 +46,7 @@
                 <br />
                 State&nbsp;&nbsp;&nbsp;
            
-                <asp:DropDownList ID="State" runat="server" CssClass="form-control">
+                <asp:DropDownList ID="State" runat="server" CssClass="form-control" Width="250px">
                     <asp:ListItem Value="AL">Alabama</asp:ListItem>
                     <asp:ListItem Value="AK">Alaska</asp:ListItem>
                     <asp:ListItem Value="AZ">Arizona</asp:ListItem>
@@ -110,7 +112,7 @@
                 <br />
                 <asp:Label ID="ErrorText" runat="server" ForeColor="Red"></asp:Label>
             </div>
-        </form>
+       <%-- </form>--%>
     </body>
     </html>
 </asp:Content>

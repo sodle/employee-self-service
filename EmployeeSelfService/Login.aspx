@@ -7,7 +7,7 @@
 
     <html xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <form id="form1" runat="server">
+       <%-- <form id="form1" runat="server">--%>
             <div class="row">
                 <div class="span7 center" style="background-color=">
             <h1>Log In</h1>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             </div>
-        </form>
+       <%-- </form>--%>
     </body>
     </html>
 </asp:Content>

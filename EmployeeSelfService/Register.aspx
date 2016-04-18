@@ -9,7 +9,7 @@
     <title></title>
 </head>--%>
 <body>
-    <form id="form1" runat="server">
+  <%--  <form id="form1" runat="server">--%>
         <h1>Register for Employee Self Service</h1>
     <div>
         
@@ -38,7 +38,7 @@
         <asp:TextBox ID="City" runat="server" CssClass="form-control input-sm" Width="250px"></asp:TextBox>
         <br />
         State&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="State" runat="server" CssClass="form-control">
+        <asp:DropDownList ID="State" runat="server" CssClass="form-control" Width="250px">
             <asp:ListItem Value="AL">Alabama</asp:ListItem>
             <asp:ListItem Value="AK">Alaska</asp:ListItem>
             <asp:ListItem Value="AZ">Arizona</asp:ListItem>
@@ -103,7 +103,7 @@
         <asp:Label ID="ErrorText" runat="server" ForeColor="Red"></asp:Label>
 
     </div>
-    </form>
+   <%-- </form>--%>
 </body>
 </html>
     </asp:Content>

@@ -11,7 +11,12 @@ namespace EmployeeSelfService
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Username"] == null)
+            {
+                Response.BufferOutput = true;
+                Response.Redirect("/Login.aspx?nextPage=" + Request.ServerVariables["URL"]);
+                return;
+            }
         }
     }
 }

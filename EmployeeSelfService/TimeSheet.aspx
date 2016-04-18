@@ -2,6 +2,8 @@
 
 <asp:Content ID="Content1Profile" ContentPlaceHolderID="StyleSection" runat="server">
 </asp:Content>
+
+    
 <asp:Content ID="Content2Profile" ContentPlaceHolderID="form" runat="server">
 
     <!DOCTYPE html>
@@ -10,8 +12,11 @@
     <%--  <head runat="server">
         <title></title>
     </head>--%>
+      
     <body>
-        <form id="form1" runat="server">
+            
+    <%--    <form id="form1" runat="server">--%>
+            
             <h1>Time Sheet</h1>
             <hr />
             <div class ="row">
@@ -117,7 +122,17 @@
                 <br />
                 <asp:Label ID="ErrorText" runat="server" ForeColor="Red"></asp:Label>
             </div>
-        </form>
+
+
+              <%--  <asp:Menu runat="server" CssClass="nav-stacked" >
+            <Items runat="server" >
+            <asp:MenuItem runat="server" Text="Testing side"></asp:MenuItem>
+                 <asp:MenuItem runat="server" Text="Testing side"></asp:MenuItem>  
+            </Items>
+        </asp:Menu>--%>
+
+
+      <%--  </form>--%>
     </body>
     </html>
 </asp:Content>

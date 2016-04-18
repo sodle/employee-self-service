@@ -9,7 +9,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <body>
-    <form id="form1" runat="server">
         <h1>Change Password</h1>
         <hr />
         <div>
@@ -28,7 +27,6 @@
             <asp:Button ID="SubmitButton" runat="server" Text="Change Password" OnClick="SubmitButton_Click" CssClass="btn btn-primary" /><br />
             <asp:Label ID="ErrorText" runat="server" ForeColor="Red"></asp:Label>
         </div>
-    </form>
 </body>
 </html>
 </asp:Content>

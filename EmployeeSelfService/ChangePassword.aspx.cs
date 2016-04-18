@@ -33,7 +33,7 @@ namespace EmployeeSelfService
                 Response.Redirect("/SessionTest.aspx");
             } catch (InvalidLoginException)
             {
-                ErrorText.Text = "Your username and password do not match any of our records.";
+                ErrorText.Text = "Your password does not match any of our records.";
                 return;
             }
         }

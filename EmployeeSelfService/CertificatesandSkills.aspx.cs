@@ -107,6 +107,7 @@ namespace EmployeeSelfService
             int sCount = Int32.Parse(skillCount.Text);
 
             UpdateButton.Visible = false;
+            CancelButton.Visible = false;
 
             using (var db = new ESSDatabase())
             {
@@ -149,7 +150,7 @@ namespace EmployeeSelfService
                     }
                     certificationCount.Text = certCount.ToString();
                 }
-                else if (Skills.ReadOnly == false)
+                if (Skills.ReadOnly == false)
                 {
                     if (!sTextboxes[sCount].Text.Equals("add a new skill"))
                     {
@@ -205,11 +206,16 @@ namespace EmployeeSelfService
                     makeRead++;
                 }
                 UpdateButton.Visible = true;
+                CancelButton.Visible = true;
                 
                 if (ProfileEmployee.certifications.Count > 0)
                 {
                     certTextboxes[certCount].Visible = true;
                     certTextboxes[certCount].BackColor = System.Drawing.Color.LightGray;
+                    certTextboxes[certCount].Text = "add a new certificate";
+                }
+                else
+                {
                     certTextboxes[certCount].Text = "add a new certificate";
                 }
             }
@@ -237,11 +243,16 @@ namespace EmployeeSelfService
                     makeRead++;
                 }
                 UpdateButton.Visible = true;
+                CancelButton.Visible = true;
 
                 if (ProfileEmployee.skills.Count > 0)
                 {
                     sTextboxes[sCount].Visible = true;
                     sTextboxes[sCount].BackColor = System.Drawing.Color.LightGray;
+                    sTextboxes[sCount].Text = "add a new skill";
+                }
+                else
+                {
                     sTextboxes[sCount].Text = "add a new skill";
                 }
             }
@@ -310,6 +321,11 @@ namespace EmployeeSelfService
                 }
             }
             skillCount.Text = sCount.ToString();
+            Response.Redirect(Request.RawUrl);
+        }
+        
+        protected void CancelEdit(object sender, EventArgs e)
+        {
             Response.Redirect(Request.RawUrl);
         }
 

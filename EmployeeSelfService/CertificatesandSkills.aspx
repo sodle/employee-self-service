@@ -16,33 +16,45 @@
     <div>
         <div>
         <asp:TextBox ID="certificationCount" runat="server" Text="0" Visible="false"></asp:TextBox>
-        <asp:TextBox ID="Certificates" runat="server" Height="40px" Width="500px" CssClass="form-control input-lg" ReadOnly="true" Style="resize:none; float:left" BorderWidth="0px" BackColor="White"></asp:TextBox> 
-        <asp:Button ID="cancel0" runat="server" Height="40px" Text="X" OnClick="DeleteCertificate" BackColor="Red" CssClass="btn btn-group-sm" Visible="false" Style="position:relative"/>
+        <asp:TextBox ID="Certificates" runat="server" Height="40px" Width="500px" CssClass="form-control input-lg" ReadOnly="true" Style="resize:none; float:left" BorderWidth="0px" BackColor="White"></asp:TextBox> &nbsp
+        <asp:Button ID="cancel0" runat="server" Height="40px" Text="X" OnClick="DeleteCertificate" BackColor="White" ForeColor="Red" BorderColor="White" Font-Size="Large" CssClass="btn btn-group-sm" Visible="false" Style="position:relative"/>
         <br />
         </div>
+        <br />
         <div>
         <asp:TextBox ID="Certificates1" runat="server" Height="40px" CssClass="form-control input-lg" Style="resize:none; float:left"
-            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>
-        <asp:Button ID="cancel1" runat="server" Height="40px" Text="X" OnClick="DeleteCertificate" BackColor="Red" CssClass="btn btn-group-sm" Visible="false"/>
+            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>&nbsp
+        <asp:Button ID="cancel1" runat="server" Height="40px" Text="X" OnClick="DeleteCertificate" BackColor="White" ForeColor="Red" BorderColor="White" Font-Size="Large" CssClass="btn btn-group-sm" Visible="false"/>
         <br />
         </div>
+        <br />
         <div>
         <asp:TextBox ID="Certificates2" runat="server" Height="40px" CssClass="form-control input-lg" Style="resize:none; float:left"
-            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>
-        <asp:Button ID="cancel2" runat="server" Height="40px" Text="X" OnClick="DeleteCertificate" BackColor="Red" CssClass="btn btn-group-sm" Visible="false"/>
-        <br />
+            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>&nbsp
+        <asp:Button ID="cancel2" runat="server" Height="40px" Text="X" OnClick="DeleteCertificate" BackColor="White" ForeColor="Red" BorderColor="White" Font-Size="Large" CssClass="btn btn-group-sm" Visible="false"/>
+        <br /> 
         </div>
+        <br />
+        <div>
         <asp:TextBox ID="Certificates3" runat="server" Height="40px" CssClass="form-control input-lg" Style="resize:none; float:left"
-            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>
-        <asp:Button ID="cancel3" runat="server" Height="40px" Text="X" OnClick="DeleteCertificate" BackColor="Red" CssClass="btn btn-group-sm" Visible="false"/>
+            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>&nbsp
+        <asp:Button ID="cancel3" runat="server" Height="40px" Text="X" OnClick="DeleteCertificate" BackColor="White" ForeColor="Red" BorderColor="White" Font-Size="Large" CssClass="btn btn-group-sm" Visible="false"/>
         <br />
+            </div>
+        <br />
+        <div>
         <asp:TextBox ID="Certificates4" runat="server" Height="40px" CssClass="form-control input-lg" Style="resize:none; float:left"
-            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>
-        <asp:Button ID="cancel4" runat="server" Height="40px" Text="X" OnClick="DeleteCertificate" BackColor="Red" CssClass="btn btn-group-sm" Visible="false"/>
+            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>&nbsp
+        <asp:Button ID="cancel4" runat="server" Height="40px" Text="X" OnClick="DeleteCertificate" BackColor="White" ForeColor="Red" BorderColor="White" Font-Size="Large" CssClass="btn btn-group-sm" Visible="false"/>
         <br />
+            </div>
+        <br />
+        <div>
         <asp:TextBox ID="Certificates5" runat="server" Height="40px" CssClass="form-control input-lg" Style="resize:none; float:left"
-            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>
-        <asp:Button ID="cancel5" runat="server" Height="40px" Text="X" OnClick="DeleteCertificate" BackColor="Red" CssClass="btn btn-group-sm" Visible="false"/>
+            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>&nbsp
+        <asp:Button ID="cancel5" runat="server" Height="40px" Text="X" OnClick="DeleteCertificate" BackColor="White" ForeColor="Red" BorderColor="White" Font-Size="Large" CssClass="btn btn-group-sm" Visible="false"/>
+        <br />
+            </div>
         <br />
             <asp:Button ID="EditCert" runat="server" Text="edit" OnClick="EditCertificates" CssClass="btn btn-sm pull-right" />
         <br />
@@ -53,38 +65,53 @@
         <div>
             <div>
         <asp:TextBox ID="skillCount" runat="server" Text="0" Visible="false"></asp:TextBox>
-        <asp:TextBox ID="Skills" runat="server" Height="40px" Width="500px" CssClass="form-control input-lg" ReadOnly="true" Style="resize:none; float:left" BorderWidth="0px" BackColor="White"></asp:TextBox> 
-        <asp:Button ID="sCancel0" runat="server" Height="40px" Text="X" OnClick="DeleteSkill" BackColor="Red" CssClass="btn btn-group-sm" Visible="false" Style="position:relative"/>
+        <asp:TextBox ID="Skills" runat="server" Height="40px" Width="500px" CssClass="form-control input-lg" ReadOnly="true" Style="resize:none; float:left" BorderWidth="0px" BackColor="White"></asp:TextBox> &nbsp
+        <asp:Button ID="sCancel0" runat="server" Height="40px" Text="X" OnClick="DeleteSkill" BackColor="White" ForeColor="Red" BorderColor="White" Font-Size="Large" CssClass="btn btn-group-sm" Visible="false" Style="position:relative"/>
         <br />
-        </div>
+            </div>
+            <br />
         <div>
         <asp:TextBox ID="Skills1" runat="server" Height="40px" CssClass="form-control input-lg" Style="resize:none; float:left"
-            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>
-        <asp:Button ID="sCancel1" runat="server" Height="40px" Text="X" OnClick="DeleteSkill" BackColor="Red" CssClass="btn btn-group-sm" Visible="false"/>
+            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>&nbsp
+        <asp:Button ID="sCancel1" runat="server" Height="40px" Text="X" OnClick="DeleteSkill" BackColor="White" ForeColor="Red" BorderColor="White" Font-Size="Large" CssClass="btn btn-group-sm" Visible="false"/>
         <br />
         </div>
+            <br />
         <div>
         <asp:TextBox ID="Skills2" runat="server" Height="40px" CssClass="form-control input-lg" Style="resize:none; float:left"
-            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>
-        <asp:Button ID="sCancel2" runat="server" Height="40px" Text="X" OnClick="DeleteSkill" BackColor="Red" CssClass="btn btn-group-sm" Visible="false"/>
+            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>&nbsp
+        <asp:Button ID="sCancel2" runat="server" Height="40px" Text="X" OnClick="DeleteSkill" BackColor="White" ForeColor="Red" BorderColor="White" Font-Size="Large" CssClass="btn btn-group-sm" Visible="false"/>
         <br />
         </div>
+            <br />
+            <div>
         <asp:TextBox ID="Skills3" runat="server" Height="40px" CssClass="form-control input-lg" Style="resize:none; float:left"
-            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>
-        <asp:Button ID="sCancel3" runat="server" Height="40px" Text="X" OnClick="DeleteSkill" BackColor="Red" CssClass="btn btn-group-sm" Visible="false"/>
+            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>&nbsp
+        <asp:Button ID="sCancel3" runat="server" Height="40px" Text="X" OnClick="DeleteSkill" BackColor="White" ForeColor="Red" BorderColor="White" Font-Size="Large" CssClass="btn btn-group-sm" Visible="false"/>
         <br />
+                </div>
+            <br />
+            <div>
         <asp:TextBox ID="Skills4" runat="server" Height="40px" CssClass="form-control input-lg" Style="resize:none; float:left"
-            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>
-        <asp:Button ID="sCancel4" runat="server" Height="40px" Text="X" OnClick="DeleteSkill" BackColor="Red" CssClass="btn btn-group-sm" Visible="false"/>
+            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>&nbsp
+        <asp:Button ID="sCancel4" runat="server" Height="40px" Text="X" OnClick="DeleteSkill" BackColor="White" ForeColor="Red" BorderColor="White" Font-Size="Large" CssClass="btn btn-group-sm" Visible="false"/>
         <br />
+                </div>
+            <br />
+            <div>
         <asp:TextBox ID="Skills5" runat="server" Height="40px" CssClass="form-control input-lg" Style="resize:none; float:left"
-            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>
-        <asp:Button ID="sCancel5" runat="server" Height="40px" Text="X" OnClick="DeleteSkill" BackColor="Red" CssClass="btn btn-group-sm" Visible="false"/>
+            BorderWidth="0px" BackColor="White" Width="500px" Visible="false"></asp:TextBox>&nbsp
+        <asp:Button ID="sCancel5" runat="server" Height="40px" Text="X" OnClick="DeleteSkill" BackColor="White" ForeColor="Red" BorderColor="White" Font-Size="Large" CssClass="btn btn-group-sm" Visible="false"/>
         <br />
+                </div>
+            <br />
             <asp:Button ID="editSkills" runat="server" Text="edit" OnClick="EditSkills" CssClass="btn btn-sm pull-right" />
         <br />
-
-            <asp:Button ID="UpdateButton" runat="server" Text="Update" OnClick="SubmitButton_Click" CssClass="btn btn-primary" Visible="false" />
+            <div>
+            <asp:Button ID="UpdateButton" runat="server" Text="Update" OnClick="SubmitButton_Click" CssClass="btn btn-primary" Visible="false" Style="float:left"/>&nbsp
+            <asp:Button ID="CancelButton" runat="server" Text="Cancel" OnClick="CancelEdit" CssClass="btn btn-primary" BackColor="White" BorderColor="Gray" ForeColor="GrayText" Visible="false" />
+            <br />
+                </div>
             <br />
             <asp:Label ID="ErrorText" runat="server" ForeColor="Red"></asp:Label>
         </div>

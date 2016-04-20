@@ -119,6 +119,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Home.aspx" />
+    <Content Include="Images\SogetiIconLarge.jpg" />
+    <Content Include="Images\workImageSM.jpg" />
+    <Content Include="Images\workImageSM2B.jpg" />
     <Content Include="Logout.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -155,7 +159,9 @@
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="SessionTest.aspx" />
     <Content Include="TimeSheet.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\certification.cs" />
@@ -169,6 +175,13 @@
     </Compile>
     <Compile Include="ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

@@ -52,7 +52,7 @@
 
             <%-- <hr style="color: white" />--%>
             <div class="col-lg-6">
-                <h1 style="color: white; font-family: 'Open Sans'; font-size: 30pt; text-align: center"><b>Employee Self Service</b></h1>
+                <h1 style="color: white; font-family: Arial; font-size: 30pt; text-align: center"><b>Employee Self Service</b></h1>
 
                 <h3 style="color: white; font-family: 'Open Sans'; font-weight: 100; font-style: italic; font-size: medium; text-align: center">Sponsored by</h3>
 

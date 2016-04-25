@@ -9,7 +9,7 @@ namespace EmployeeSelfService
 {
     public partial class Login : System.Web.UI.Page
     {
-        string DefaultNextPage = "/SessionTest.aspx";
+        string DefaultNextPage = "/Profile.aspx";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

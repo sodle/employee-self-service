@@ -13,7 +13,7 @@ namespace EmployeeSelfService
         {
             Session.Abandon();
             Response.BufferOutput = true;
-            Response.Redirect("/SessionTest.aspx");
+            Response.Redirect("/Login.aspx");
         }
     }
 }

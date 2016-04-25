@@ -20,6 +20,9 @@
             line-height: 20px;
             color: #FFFFFF;
         }
+        .hide {
+            display:none;
+        }
     </style>
 </head>
 <body>
@@ -27,7 +30,7 @@
  <%--   <form id="form1" runat="server">--%>
 
     <%-- <form id="form1" runat="server">--%>
-    <div class="container">
+    <div class="container" runat="server">
         <%-- <div class="navbar navbar-default navbar-inverse navbar-fixed-top">--%>
         <!--nav bar section-->
         <div class="navbar navbar-default navbar-inverse navbar-fixed-top" style="background-color: #FF4411; border:none; box-shadow: 10px -1px 10px #333"  role="navigation">
@@ -47,12 +50,15 @@
                     <a class="auto-style1" href="#">Employee Self Service</a>
                 </div>
 
-                <div id="navbar" class="navbar-collapse collapse in" aria-expanded="false"> 
+                <div id="navbar" runat="server" class="navbar-collapse collapse in" aria-expanded="false"> 
                     <ul class="nav navbar-nav navbar-right"  >
-                        <li><a href="/Register.aspx" >Register</a></li>
-                        <li><a href="/Login.aspx">Log In</a></li>
-                       
-
+                        <li id="li_register" runat="server"><a href="/Register.aspx" >Register</a></li>
+                        <li id="li_login" runat="server"><a href="/Login.aspx">Log In</a></li>
+                        <li id="li_profile" runat="server" visible="false"><a href="/Profile.aspx">Profile</a></li>
+                        <li id="li_skill" runat="server" visible="false"><a href="CertificatesandSkills.aspx">Skills/Certifications</a></li>
+                        <li id="li_timesheet" runat="server" visible="false"><a href="TimeSheet.aspx">Timesheet</a></li>
+                        <li id="li_changePassword" runat="server" visible="false"><a href="ChangePassword.aspx">Change Password</a></li>
+                        <li id="li_logout" runat="server" visible="false"><a href="Logout.aspx">Logout</a></li>
                     </ul>
                     </div>
                 </div>

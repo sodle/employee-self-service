@@ -34,7 +34,7 @@ namespace EmployeeSelfService
                 ErrorText.Text = "User created successfully.";
                 Session["Username"] = Username.Text;
                 Response.BufferOutput = true;
-                Response.Redirect("/SessionTest.aspx");
+                Response.Redirect("/Profile.aspx");
             }
             catch (UserAlreadyExistsException)
             {

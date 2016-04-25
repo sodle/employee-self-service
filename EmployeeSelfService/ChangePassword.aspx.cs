@@ -30,7 +30,7 @@ namespace EmployeeSelfService
             {
                 ESSLogin.ChangePassword(Session["Username"].ToString(), CurrentPass.Text, NewPass.Text);
                 Response.BufferOutput = true;
-                Response.Redirect("/SessionTest.aspx");
+                Response.Redirect("/Profile.aspx");
             } catch (InvalidLoginException)
             {
                 ErrorText.Text = "Your password does not match any of our records.";

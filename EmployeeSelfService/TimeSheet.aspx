@@ -21,13 +21,15 @@
             <hr />
             <div class ="row">
             <div class="col-lg-3 col-md-3">
-                <button type="button" class="btn btn-default"><< Previous</button>
+                <asp:Button id="prev_button" runat="server" CssClass="btn btn-default" OnClick="getPreviousWeek" Text="<< Previous" />
+                <asp:Textbox ID="prev_count" runat="server" Text="0" Visible="false"></asp:Textbox>
             </div>
             <div class="col-lg-3 col-md-3">
-                <h4>Week of (Get Week Here) </h4>
+                <h4 id="week_header" runat="server">Week of (Get Week Here) </h4>
             </div>
             <div class="col-lg-3 col-md-3">
-                <button type="button" class="btn btn-default">Next >></button>
+                <asp:Button id="next_button" runat="server" CssClass="btn btn-default" OnClick="getNextWeek" Text="Next >>"/>
+                <asp:Textbox ID="next_count" runat="server" Text="0" Visible="false"></asp:Textbox>
             </div>
                 </div>
             <hr />
@@ -36,39 +38,39 @@
                 <div class=" col-sm-1 ">
                     Sunday
            
-                     <asp:TextBox ID="Sunday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
+                     <asp:TextBox ID="bSunday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
                 </div>
 
                 <div class=" col-sm-1 ">
                     Monday
            
-                <asp:TextBox ID="Monday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
+                <asp:TextBox ID="bMonday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
                 </div>
                 <div class=" col-sm-1 ">
                     Tuesday
            
-                <asp:TextBox ID="Tuesday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
+                <asp:TextBox ID="bTuesday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
                 </div>
 
                 <div class=" col-sm-1 ">
                     Wednesday
            
-                <asp:TextBox ID="Wednesday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
+                <asp:TextBox ID="bWednesday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
                 </div>
 
                 <div class=" col-sm-1 ">
                     Thursday
-                <asp:TextBox ID="Thursday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
+                <asp:TextBox ID="bThursday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
                 </div>
 
                 <div class=" col-sm-1 ">
                     Friday
-                    <asp:TextBox ID="Friday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox><br />
+                    <asp:TextBox ID="bFriday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox><br />
 
                 </div>
                 <div class=" col-sm-1 ">
                     Saturday<br />
-                    <asp:TextBox ID="Saturday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
+                    <asp:TextBox ID="bSaturday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
                 </div>
 
                 <br />
@@ -79,39 +81,39 @@
                 <div class=" col-sm-1 ">
                     Sunday
            
-                     <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
+                     <asp:TextBox ID="nSunday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
                 </div>
 
                 <div class=" col-sm-1 ">
                     Monday
            
-                <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
+                <asp:TextBox ID="nMonday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
                 </div>
                 <div class=" col-sm-1 ">
                     Tuesday
            
-                <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
+                <asp:TextBox ID="nTuesday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
                 </div>
 
                 <div class=" col-sm-1 ">
                     Wednesday
            
-                <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
+                <asp:TextBox ID="nWednesday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
                 </div>
 
                 <div class=" col-sm-1 ">
                     Thursday
-                <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
+                <asp:TextBox ID="nThursday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
                 </div>
 
                 <div class=" col-sm-1 ">
                     Friday
-                    <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox><br />
+                    <asp:TextBox ID="nFriday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox><br />
 
                 </div>
                 <div class=" col-sm-1 ">
                     Saturday<br />
-                    <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
+                    <asp:TextBox ID="nSaturday" runat="server" CssClass="form-control input-sm" Width="50px"></asp:TextBox>
                 </div>
 
                 <br />

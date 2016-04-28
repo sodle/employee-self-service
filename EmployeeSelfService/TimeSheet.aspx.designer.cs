@@ -13,130 +13,175 @@ namespace EmployeeSelfService {
     public partial class TimeSheet {
         
         /// <summary>
-        /// Sunday control.
+        /// prev_button control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Sunday;
+        protected global::System.Web.UI.WebControls.Button prev_button;
         
         /// <summary>
-        /// Monday control.
+        /// prev_count control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Monday;
+        protected global::System.Web.UI.WebControls.TextBox prev_count;
         
         /// <summary>
-        /// Tuesday control.
+        /// week_header control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tuesday;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl week_header;
         
         /// <summary>
-        /// Wednesday control.
+        /// next_button control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Wednesday;
+        protected global::System.Web.UI.WebControls.Button next_button;
         
         /// <summary>
-        /// Thursday control.
+        /// next_count control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Thursday;
+        protected global::System.Web.UI.WebControls.TextBox next_count;
         
         /// <summary>
-        /// Friday control.
+        /// bSunday control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Friday;
+        protected global::System.Web.UI.WebControls.TextBox bSunday;
         
         /// <summary>
-        /// Saturday control.
+        /// bMonday control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Saturday;
+        protected global::System.Web.UI.WebControls.TextBox bMonday;
         
         /// <summary>
-        /// TextBox1 control.
+        /// bTuesday control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox bTuesday;
         
         /// <summary>
-        /// TextBox2 control.
+        /// bWednesday control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox bWednesday;
         
         /// <summary>
-        /// TextBox3 control.
+        /// bThursday control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox bThursday;
         
         /// <summary>
-        /// TextBox4 control.
+        /// bFriday control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox bFriday;
         
         /// <summary>
-        /// TextBox5 control.
+        /// bSaturday control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.TextBox bSaturday;
         
         /// <summary>
-        /// TextBox6 control.
+        /// nSunday control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.TextBox nSunday;
         
         /// <summary>
-        /// TextBox7 control.
+        /// nMonday control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox7;
+        protected global::System.Web.UI.WebControls.TextBox nMonday;
+        
+        /// <summary>
+        /// nTuesday control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nTuesday;
+        
+        /// <summary>
+        /// nWednesday control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nWednesday;
+        
+        /// <summary>
+        /// nThursday control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nThursday;
+        
+        /// <summary>
+        /// nFriday control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nFriday;
+        
+        /// <summary>
+        /// nSaturday control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nSaturday;
         
         /// <summary>
         /// SubmitButton control.
